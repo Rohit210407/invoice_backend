@@ -3,6 +3,7 @@
 
 # Except this .gitignore file
 !.gitignore
+!Dockerfile
 
 # Except the invoicegeneratorapi directory and all its contents
 !invoicegeneratorapi/
