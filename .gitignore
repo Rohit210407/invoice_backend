@@ -1,0 +1,18 @@
+# Ignore everything in the workspace root by default
+*
+
+# Except this .gitignore file
+!.gitignore
+
+# Except the invoicegeneratorapi directory and all its contents
+!invoicegeneratorapi/
+!invoicegeneratorapi/**
+
+# Specific ignores within the invoicegeneratorapi directory to keep it clean
+invoicegeneratorapi/target/
+invoicegeneratorapi/.idea/
+invoicegeneratorapi/.vscode/
+invoicegeneratorapi/*.iml
+invoicegeneratorapi/*.iws
+invoicegeneratorapi/*.ipr
+invoicegeneratorapi/.DS_Store
