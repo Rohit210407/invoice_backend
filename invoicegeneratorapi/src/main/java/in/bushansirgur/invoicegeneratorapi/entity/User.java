@@ -19,6 +19,13 @@ public class User {
     @CreatedDate
     private Instant createdAt;
 
+    // Business Profile Fields
+    private String companyName;
+    private String companyEmail;
+    private String companyPhone;
+    private String companyAddress;
+    private String companyGst;
+
     public User() {}
 
     public User(String id, String clerkId, String email, String firstName, String lastName, String photoUrl, Instant createdAt) {
@@ -29,6 +36,22 @@ public class User {
         this.lastName = lastName;
         this.photoUrl = photoUrl;
         this.createdAt = createdAt;
+    }
+
+    public User(String id, String clerkId, String email, String firstName, String lastName, String photoUrl, Instant createdAt,
+                String companyName, String companyEmail, String companyPhone, String companyAddress, String companyGst) {
+        this.id = id;
+        this.clerkId = clerkId;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.photoUrl = photoUrl;
+        this.createdAt = createdAt;
+        this.companyName = companyName;
+        this.companyEmail = companyEmail;
+        this.companyPhone = companyPhone;
+        this.companyAddress = companyAddress;
+        this.companyGst = companyGst;
     }
 
     public String getId() { return id; }
@@ -52,6 +75,21 @@ public class User {
     public Instant getCreatedAt() { return createdAt; }
     public void setCreatedAt(Instant createdAt) { this.createdAt = createdAt; }
 
+    public String getCompanyName() { return companyName; }
+    public void setCompanyName(String companyName) { this.companyName = companyName; }
+
+    public String getCompanyEmail() { return companyEmail; }
+    public void setCompanyEmail(String companyEmail) { this.companyEmail = companyEmail; }
+
+    public String getCompanyPhone() { return companyPhone; }
+    public void setCompanyPhone(String companyPhone) { this.companyPhone = companyPhone; }
+
+    public String getCompanyAddress() { return companyAddress; }
+    public void setCompanyAddress(String companyAddress) { this.companyAddress = companyAddress; }
+
+    public String getCompanyGst() { return companyGst; }
+    public void setCompanyGst(String companyGst) { this.companyGst = companyGst; }
+
     public static UserBuilder builder() {
         return new UserBuilder();
     }
@@ -64,6 +102,11 @@ public class User {
         private String lastName;
         private String photoUrl;
         private Instant createdAt;
+        private String companyName;
+        private String companyEmail;
+        private String companyPhone;
+        private String companyAddress;
+        private String companyGst;
 
         UserBuilder() {}
 
@@ -102,8 +145,34 @@ public class User {
             return this;
         }
 
+        public UserBuilder companyName(String companyName) {
+            this.companyName = companyName;
+            return this;
+        }
+
+        public UserBuilder companyEmail(String companyEmail) {
+            this.companyEmail = companyEmail;
+            return this;
+        }
+
+        public UserBuilder companyPhone(String companyPhone) {
+            this.companyPhone = companyPhone;
+            return this;
+        }
+
+        public UserBuilder companyAddress(String companyAddress) {
+            this.companyAddress = companyAddress;
+            return this;
+        }
+
+        public UserBuilder companyGst(String companyGst) {
+            this.companyGst = companyGst;
+            return this;
+        }
+
         public User build() {
-            return new User(id, clerkId, email, firstName, lastName, photoUrl, createdAt);
+            return new User(id, clerkId, email, firstName, lastName, photoUrl, createdAt,
+                    companyName, companyEmail, companyPhone, companyAddress, companyGst);
         }
     }
 }

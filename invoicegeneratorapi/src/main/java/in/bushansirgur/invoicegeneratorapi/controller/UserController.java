@@ -31,4 +31,22 @@ public class UserController {
             throw new RuntimeException(e);
         }
     }
+
+    @GetMapping("/profile")
+    public User getUserProfile(Authentication authentication) {
+        try {
+            return userService.getAccountByClerkId(authentication.getName());
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User profile not found", e);
+        }
+    }
+
+    @PutMapping("/profile")
+    public User updateProfile(@RequestBody User profileUpdate, Authentication authentication) {
+        try {
+            return userService.updateCompanyProfile(authentication.getName(), profileUpdate);
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to update profile", e);
+        }
+    }
 }

@@ -43,4 +43,15 @@ public class UserService {
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
         return existingUser;
     }
+
+    public User updateCompanyProfile(String clerkId, User profileUpdate) {
+        User existingUser = userRepository.findByClerkId(clerkId)
+                .orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        existingUser.setCompanyName(profileUpdate.getCompanyName());
+        existingUser.setCompanyEmail(profileUpdate.getCompanyEmail());
+        existingUser.setCompanyPhone(profileUpdate.getCompanyPhone());
+        existingUser.setCompanyAddress(profileUpdate.getCompanyAddress());
+        existingUser.setCompanyGst(profileUpdate.getCompanyGst());
+        return userRepository.save(existingUser);
+    }
 }
