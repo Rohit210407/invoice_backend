@@ -11,4 +11,6 @@ public interface InvoiceRepository extends MongoRepository<Invoice, String> {
     List<Invoice> findByClerkId(String id);
 
     Optional<Invoice> findByClerkIdAndId(String clerkId, String id);
+
+    List<Invoice> findByIsRecurringAndRecurrenceStatus(boolean isRecurring, String recurrenceStatus);
 }

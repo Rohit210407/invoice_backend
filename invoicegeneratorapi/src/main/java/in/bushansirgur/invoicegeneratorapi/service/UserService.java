@@ -52,6 +52,7 @@ public class UserService {
         existingUser.setCompanyPhone(profileUpdate.getCompanyPhone());
         existingUser.setCompanyAddress(profileUpdate.getCompanyAddress());
         existingUser.setCompanyGst(profileUpdate.getCompanyGst());
+        existingUser.setHomeCurrency(profileUpdate.getHomeCurrency());
         return userRepository.save(existingUser);
     }
 }

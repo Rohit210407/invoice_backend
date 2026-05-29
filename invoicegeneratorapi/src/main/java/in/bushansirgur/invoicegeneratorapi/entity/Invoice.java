@@ -36,6 +36,16 @@ public class Invoice {
     private String themeColor;
     private String paymentLink;
 
+    // Advanced Premium Features
+    private String currency = "INR";
+    private double exchangeRate = 1.0;
+    private String language = "EN";
+    private boolean isRecurring = false;
+    private String recurringInterval = "MONTHLY";
+    private String recurrenceStatus = "ACTIVE";
+    private Instant nextGenerationDate;
+    private Instant lastGeneratedDate;
+
     public Invoice() {}
 
     public String getId() { return id; }
@@ -75,6 +85,23 @@ public class Invoice {
     public String getPaymentLink() { return paymentLink; }
     public void setPaymentLink(String paymentLink) { this.paymentLink = paymentLink; }
 
+    public String getCurrency() { return currency; }
+    public void setCurrency(String currency) { this.currency = currency; }
+    public double getExchangeRate() { return exchangeRate; }
+    public void setExchangeRate(double exchangeRate) { this.exchangeRate = exchangeRate; }
+    public String getLanguage() { return language; }
+    public void setLanguage(String language) { this.language = language; }
+    public boolean getIsRecurring() { return isRecurring; }
+    public void setIsRecurring(boolean recurring) { isRecurring = recurring; }
+    public String getRecurringInterval() { return recurringInterval; }
+    public void setRecurringInterval(String recurringInterval) { this.recurringInterval = recurringInterval; }
+    public String getRecurrenceStatus() { return recurrenceStatus; }
+    public void setRecurrenceStatus(String recurrenceStatus) { this.recurrenceStatus = recurrenceStatus; }
+    public Instant getNextGenerationDate() { return nextGenerationDate; }
+    public void setNextGenerationDate(Instant nextGenerationDate) { this.nextGenerationDate = nextGenerationDate; }
+    public Instant getLastGeneratedDate() { return lastGeneratedDate; }
+    public void setLastGeneratedDate(Instant lastGeneratedDate) { this.lastGeneratedDate = lastGeneratedDate; }
+
     public static class Company {
         private String name;
         private String phone;
@@ -93,10 +120,12 @@ public class Invoice {
         private String name;
         private String phone;
         private String address;
+        private String email;
         public Billing() {}
         public String getName() { return name; } public void setName(String name) { this.name = name; }
         public String getPhone() { return phone; } public void setPhone(String phone) { this.phone = phone; }
         public String getAddress() { return address; } public void setAddress(String address) { this.address = address; }
+        public String getEmail() { return email; } public void setEmail(String email) { this.email = email; }
     }
 
     public static class Shipping {

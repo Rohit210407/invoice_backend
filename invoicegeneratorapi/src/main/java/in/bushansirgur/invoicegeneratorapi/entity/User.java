@@ -25,6 +25,7 @@ public class User {
     private String companyPhone;
     private String companyAddress;
     private String companyGst;
+    private String homeCurrency = "INR";
 
     public User() {}
 
@@ -39,7 +40,7 @@ public class User {
     }
 
     public User(String id, String clerkId, String email, String firstName, String lastName, String photoUrl, Instant createdAt,
-                String companyName, String companyEmail, String companyPhone, String companyAddress, String companyGst) {
+                String companyName, String companyEmail, String companyPhone, String companyAddress, String companyGst, String homeCurrency) {
         this.id = id;
         this.clerkId = clerkId;
         this.email = email;
@@ -52,6 +53,7 @@ public class User {
         this.companyPhone = companyPhone;
         this.companyAddress = companyAddress;
         this.companyGst = companyGst;
+        this.homeCurrency = homeCurrency != null ? homeCurrency : "INR";
     }
 
     public String getId() { return id; }
@@ -90,6 +92,9 @@ public class User {
     public String getCompanyGst() { return companyGst; }
     public void setCompanyGst(String companyGst) { this.companyGst = companyGst; }
 
+    public String getHomeCurrency() { return homeCurrency; }
+    public void setHomeCurrency(String homeCurrency) { this.homeCurrency = homeCurrency; }
+
     public static UserBuilder builder() {
         return new UserBuilder();
     }
@@ -107,6 +112,7 @@ public class User {
         private String companyPhone;
         private String companyAddress;
         private String companyGst;
+        private String homeCurrency;
 
         UserBuilder() {}
 
@@ -170,9 +176,14 @@ public class User {
             return this;
         }
 
+        public UserBuilder homeCurrency(String homeCurrency) {
+            this.homeCurrency = homeCurrency;
+            return this;
+        }
+
         public User build() {
             return new User(id, clerkId, email, firstName, lastName, photoUrl, createdAt,
-                    companyName, companyEmail, companyPhone, companyAddress, companyGst);
+                    companyName, companyEmail, companyPhone, companyAddress, companyGst, homeCurrency);
         }
     }
 }
